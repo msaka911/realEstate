@@ -1,0 +1,23 @@
+.card {
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: white;
+  display: flex;
+  flex-flow:column;
+  text-align: center;
+  width: 100%;
+}
+
+
+.card label{
+  margin-bottom: 0.7rem;
+}
+
+.card Button{
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
