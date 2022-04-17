@@ -1,0 +1,92 @@
+.form {
+    position:relative;
+    animation: slide 0.6s forwards;
+    top:-100px;
+  }
+  
+  @keyframes slide {
+    100% { top: 0px; }
+  }
+  
+  .loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .control {
+    margin-bottom: 0.5rem;
+  }
+  
+  .control label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+    color:black;
+    padding-top: 10px;
+  }
+  
+  .control input,
+  .control textarea {
+    font: inherit;
+    padding: 0.35rem;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    border: 1px solid #c1d1d1;
+    display: block;
+    width: 100%;
+    font-size: 1.25rem;
+  }
+  
+  .control input:focus,
+  .control textarea:focus {
+    background-color: #fcf9f9;
+    outline-color: rgb(201, 201, 201);
+  }
+  
+  .actions {
+    text-align: right;
+  }
+  
+  .actions button {
+    font-size: 1.25rem;
+  }
+  
+  .other{
+    width: 9rem !important;
+    background-color:#ffffff !important;
+    font-size: 1rem !important;
+  }
+  
+  .postal{
+    width: 9rem !important;
+  }
+  
+  .selection{
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    
+  }
+  .selection input{
+    width: 8.5rem ;
+  }
+  
+  .selection label{
+    margin-right: 1.7rem;
+    vertical-align: baseline
+  }
+
+  .card{
+    margin: 1rem auto;
+    border-radius: 6px;
+    background-color: white;
+    padding: 1rem;
+    width: 90%;
+    max-width: 40rem;
+    max-height: 0%;
+  }

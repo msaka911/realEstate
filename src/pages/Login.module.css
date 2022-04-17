@@ -1,0 +1,33 @@
+.form{
+    align-self: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    margin:10rem;
+    padding:3rem;
+}
+
+.password, .username{
+    display: inline;
+    margin:1rem;
+    align-items: center;
+    justify-self: space-between;
+}
+
+.password label, .username label{
+    margin-right: 1.3rem;
+    font-size: 1rem;
+}
+
+
+.form button{
+    color: white;
+    background-color: black;
+    margin:1rem 2rem;
+    padding:0.5rem;
+    border-color: black;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}

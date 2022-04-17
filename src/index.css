@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 * {
   box-sizing: border-box;
+}
+
+html {
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 body {
   font-family: sans-serif;
   margin: 0;
-  height: 1200px;
   background-color: #000000;
+  grid-template-rows: auto 1fr auto;
 }
 
 .centered {
@@ -25,13 +30,14 @@ body {
 
 .btn {
   text-decoration: none;
-  background-color: teal;
+  background-color: rgb(0, 0, 0);
   color: white;
   border-radius: 4px;
   padding: 0.75rem 1.5rem;
-  border: 1px solid teal;
+  border: 1px solid rgb(24, 24, 24);
   cursor: pointer;
 }
+
 
 .btn:hover,
 .btn:active {
@@ -54,4 +60,17 @@ body {
 .btn--flat:active {
   background-color: teal;
   color: white;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black !important;
+  font-size: 3rem !important;
+}
+
+.slick-dots li button:before {
+  font-family: 'slick';
+  line-height: 20px;
+  font-size: 0.5rem !important;
+  /* more CSS */
 }

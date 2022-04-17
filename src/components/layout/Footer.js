@@ -1,10 +1,8 @@
 import { Fragment } from 'react/cjs/react.production.min';
 import classes from './Footer.module.css';
-import Card from '../UI/Card';
+
 
 const Footer=()=>{
-
-
     return(
         <Fragment>
         <div className={classes.wrapper}>

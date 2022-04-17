@@ -3,7 +3,7 @@
   height: 10rem;
   display: inline-block;
   background-color: rgb(34, 34, 34);
-
+  padding:0rem 3.5rem;
 }
 
 .logo {
@@ -16,21 +16,22 @@
   display: flex;
   justify-content: space-between;
   margin-top: 1.5rem;
-  padding: 1rem;
+  padding: 1.3rem;
   background-color: #333;
   width: 100%;
   border-bottom: 0.2rem solid #c71111;
+  border-radius: 1rem;
 }
+
 .nav li {
-  margin-left: 1.5rem;
   font-size: 1.15rem;
-  
 }
 
 .nav a {
   text-decoration: none;
   color: #ffffff;
-  padding:0.5rem 1rem;
+  padding:0.8rem 1.2rem;
+  border-radius: 0.3rem;
 }
 
 .nav a:hover,
