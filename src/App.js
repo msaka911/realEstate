@@ -23,7 +23,7 @@ function App() {
     <Layout>
       <Routes>
         <Route path='/*' element={<MainPage/>} />
-        <Route path='/inventory' element={<Inventory/>}/>
+        <Route path='/inventory' element={<Inventory/>} exact />
         <Route path='/sell' element={<Sell/>} />
         <Route path='/new-quote' element={<Form/>}/>
         {isLoggedin?<Route path='/login' element={<Admin/>}/>:<Route path='/login' element={<Login/>}/>}

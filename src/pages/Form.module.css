@@ -68,9 +68,11 @@
   
   .selection{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    width: fit-content;
-    
+    align-items: center;
+    vertical-align:bottom;
+    text-align: center;
   }
   .selection input{
     width: 8.5rem ;
@@ -78,7 +80,7 @@
   
   .selection label{
     margin-right: 1.7rem;
-    vertical-align: baseline
+    
   }
 
   .card{

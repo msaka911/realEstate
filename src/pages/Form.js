@@ -4,7 +4,7 @@ import { useAlert } from 'react-alert'
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
 import DriveEtaIcon from '@mui/icons-material/DriveEta';
-import ChairIcon from '@mui/icons-material/Chair';
+
 
 
 import classes from './Form.module.css';
@@ -34,6 +34,8 @@ const Form = (props) => {
   const distance=useRef(0);
   const livingroom=useRef(0);
   const otherOption=useRef("");
+  const brand=useRef("")
+  const model=useRef("")
 
 
   function submitFormHandler(event) { 
@@ -47,6 +49,8 @@ const Form = (props) => {
     const enteredDistance=distance.current.value;
     const enteredLivingroom=livingroom.current.value;
     const enteredOther=otherOption.current.value
+    const enteredBrand=brand.current.value
+    const enteredModel=model.current.value
     //--------------check other option---------------------//
     var other="";
     if(selected.find((select)=>
@@ -146,12 +150,16 @@ const Form = (props) => {
           ref={distance}
             />
          </label>
-         <label><ChairIcon/> Livingroom
+         <label>Brand
          <input
-          type="number"
-          min="0"
-          max="10"
-          ref={livingroom}
+          type="text"
+          ref={brand}
+            />
+         </label>
+         <label>Model
+         <input
+          type="text"
+          ref={model}
             />
          </label>
          </div>

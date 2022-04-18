@@ -5,7 +5,9 @@ const stateSlice = createSlice({
   name: 'loggedin',
   initialState: {
       loggedin:false,
-      token:""
+      token:"",
+      count:0,
+      items:null
   },
   reducers: {
     setState(state,action) {
@@ -13,6 +15,12 @@ const stateSlice = createSlice({
     },
     setToken(state,action){
       state.token = action.payload;
+    },
+    increament(state){
+      state.count++
+    },
+    setItems(state,action){
+      state.items=action.payload
     }
   },
 });
