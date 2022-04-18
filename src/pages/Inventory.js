@@ -29,9 +29,10 @@ const Inventory = (props) => {
 
 
   useEffect(()=>{
-    // axios.get('https://mybackend1.herokuapp.com/realestate')
+    
     if(data!=[]){
-      axios.get('http://localhost:3001/realestate')
+      // axios.get('http://localhost:3001/realestate')
+      axios.get('https://mybackend1.herokuapp.com/realestate')
       .then(function (response) {
         dispatch(stateActions.setItems(response.data),
         setData(response.data),
