@@ -21,7 +21,8 @@ const Form = (props) => {
     { value: 'other', label: 'Other' }
   ]
   const[selected,setSelect]=useState([]);
-  
+
+
 
 //----------------------------------------
 
@@ -126,6 +127,7 @@ const Form = (props) => {
     <Fragment>
       <div className={classes.card} clicked={props.clicked}>
         <form
+          
           className={classes.form}
           onSubmit={submitFormHandler}
         >

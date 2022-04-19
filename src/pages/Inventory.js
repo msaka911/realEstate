@@ -63,8 +63,21 @@ useMemo(()=>{
 },
 [data,count])
 
+var filteredData
 
-const filteredData=Object.values(data)?.filter(obj=>obj.name?.includes(searchTerm))
+useMemo(()=>{
+  filteredData=Object.values(data)?.filter(obj=>obj.name.toLowerCase()?.includes(searchTerm.toLowerCase()))
+  if (filteredData?.length>6){
+    filteredData=filteredData?.slice(0,6)
+  }
+ }
+,
+[searchTerm])
+
+
+
+
+
 
 useEffect(()=>{
   if(storedData&&searchTerm===""){
@@ -76,10 +89,13 @@ useEffect(()=>{
 
 
 const filtering=(id)=>{
+  
   const clickedItem=filteredData?.find((obj)=>obj._id===id)
-
+  
 
   setData([clickedItem])
+  const scroll=document.getElementById('scroll')
+  scroll.scrollIntoView({behavior:'smooth'})
 
   // if(!clickedItem){
   //   console.log("empty")
@@ -102,7 +118,7 @@ return (
               <h5 >{items.name}</h5>
               <img src={`data:image/jpeg;base64,${items.image1}`}  alt="Image1"/>
               {/* <h5 >{items.brand}</h5> */}
-              <h5 >{items.price}</h5>
+              <h5 >${items.price}</h5>
             </div>
           )
         })):null}
@@ -110,7 +126,7 @@ return (
       </div>
      <section className={classes.products} style={{display:reachCount?'block':'none'}}>
       <h2>Inventory</h2>
-        <ul>
+        <ul id="scroll">
           {data?.map(product=><ProductItem
             key={product._id}
             id={product._id}

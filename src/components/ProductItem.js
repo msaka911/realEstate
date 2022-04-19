@@ -40,7 +40,7 @@ const ProductItem = (props) => {
           <h5 >hi</h5>
           <h5 >hi</h5>
           </div>
-          <div className={classes.price}>${parseInt(price.substring(2))}</div>
+          <div className={classes.price}>${parseInt(price)}</div>
         </header>
         <div className={classes.container}>
       <Slider 
@@ -61,7 +61,7 @@ const ProductItem = (props) => {
         <Slider
           asNavFor={nav1}
           ref={slider => (setSlider2(slider))}
-          slidesToShow={2.65}
+          slidesToShow={2.99}
           swipeToSlide={true}
           focusOnSelect={true}
           arrows={false}

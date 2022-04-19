@@ -41,7 +41,8 @@ const Admin=()=>{
             headers: { Authorization: `Bearer ${token}` }
         };
         
-        axios.post('https://mybackend1.herokuapp.com/upload',
+        // axios.post('https://mybackend1.herokuapp.com/upload',
+        axios.post('http://localhost:3001/upload',
           formData,
           config
         ).then((response)=>{
@@ -56,8 +57,8 @@ const Admin=()=>{
         event.preventDefault();
         const axios = require('axios');
         const deletedItem=item.current.value
-        // axios.post(`http://localhost:3001/deleteItem?name=${deletedItem}`
-        axios.post(`https://mybackend1.herokuapp.com/deleteItem?name=${deletedItem}`,{},
+        axios.post(`http://localhost:3001/deleteItem?name=${deletedItem}`,{},
+        // axios.post(`https://mybackend1.herokuapp.com/deleteItem?name=${deletedItem}`,{},
 
         {headers: {Authorization: `Bearer ${token}`}}
         ).then((response)=>{
