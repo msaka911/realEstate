@@ -43,7 +43,30 @@
   position: relative;
   width:4.5rem;
   align-self: center;
+  color: white;
 }
+
+.noresult h5{
+  text-align: center !important;
+  color: white;
+  white-space: nowrap;
+  margin: auto !important;
+}
+
+.noresult{
+  display:flex;
+  font-size: 1.3rem;
+  justify-content: center;
+  background-color: grey;
+  border-bottom: 0.3rem solid;
+  border-radius: 0.3rem;
+  border-color: black;
+  width:60%;
+  height: 3.8rem;
+  margin: auto;
+}
+
+
 
 .serachinput input:focus, .serachinput input {
       outline: none;

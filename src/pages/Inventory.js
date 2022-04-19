@@ -29,7 +29,6 @@ const Inventory = (props) => {
 
 
   useEffect(()=>{
-    
     if(data!=[]){
       // axios.get('http://localhost:3001/realestate')
       axios.get('https://mybackend1.herokuapp.com/realestate')
@@ -45,19 +44,8 @@ const Inventory = (props) => {
   },[])
   
 
-// useMemo(()=>{
-//   if(!data){
-//     if(count>15){
-//       console.log("count")
-//   }
-//   }
-// },
-// [count])
-
-
-
 useMemo(()=>{
-   if(count>10){
+   if(count===12){
     setCount(true)
   }
 },
@@ -70,29 +58,33 @@ useMemo(()=>{
   if (filteredData?.length>6){
     filteredData=filteredData?.slice(0,6)
   }
+  if(filteredData?.length===storedData?.length){
+    filteredData=[]
+  }
+  // if(filteredData?.length===0){
+  //   filteredData=[{name:"no item found",key:"none"}]
+  // }
  }
 ,
 [searchTerm])
 
 
 useEffect(()=>{
-  if(storedData&&searchTerm===""){
+  if(storedData&&focused){
     setData(storedData)
   }
-},[storedData,searchTerm])
+},[storedData,focused])
 
-console.log(reachCount)
 
 
 const filtering=(id)=>{
   
   const clickedItem=filteredData?.find((obj)=>obj._id===id)
-  
 
   setData([clickedItem])
   const scroll=document.getElementById('scroll')
   scroll.scrollIntoView({behavior:'smooth'})
-
+  
   // if(!clickedItem){
   //   console.log("empty")
   //   setData("")
@@ -108,7 +100,7 @@ return (
      </div>
      <div style={{display:reachCount?'block':'none'}}>
         <SearchInput className={classes.serachinput}  onFocus={()=>setFocus(true)} onChange={(input)=>setTerm(input)} />
-        {focused&&searchTerm? (filteredData?.map(items => {
+        {(focused&&filteredData?.length>0)?(filteredData?.map(items => {
           return (
             <div className= {classes.searchBar} key={items._id} onClick={()=>filtering(items._id)}> 
               <h5 >{items.name}</h5>
@@ -117,8 +109,7 @@ return (
               <h5 >${items.price}</h5>
             </div>
           )
-        })):null}
-
+        })):searchTerm?<div className= {classes.noresult}><h5 >No result found</h5></div>:null}
       </div>
      <section className={classes.products} style={{display:reachCount?'block':'none'}}>
       <h2>Inventory</h2>
