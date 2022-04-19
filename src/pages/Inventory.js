@@ -57,7 +57,7 @@ const Inventory = (props) => {
 
 
 useMemo(()=>{
-   if(count>15){
+   if(count>10){
     setCount(true)
   }
 },
@@ -75,17 +75,13 @@ useMemo(()=>{
 [searchTerm])
 
 
-
-
-
-
 useEffect(()=>{
   if(storedData&&searchTerm===""){
     setData(storedData)
   }
 },[storedData,searchTerm])
 
-
+console.log(reachCount)
 
 
 const filtering=(id)=>{
