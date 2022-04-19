@@ -7,15 +7,19 @@ import { useSelector,useDispatch} from 'react-redux';
 import { Fragment } from 'react/cjs/react.production.min';
 import { stateActions } from '../store/store';
 import SearchInput, {createFilter} from 'react-search-input'
+import { useLocation } from 'react-router-dom';
 
 const axios = require('axios');
 
 
 const Inventory = (props) => {
+  const location = useLocation()
+
   const [searchTerm,setTerm]=useState("");
   const [reachCount,setCount]=useState(false)
   const [focused,setFocus]=useState(false)
   const [data,setData]=useState([])
+  const [filteredData,setFiltered]=useState([])
 
   const alert=useAlert();
   const dispatch=useDispatch()
@@ -24,12 +28,10 @@ const Inventory = (props) => {
 
   
   
- 
-  // console.log(filteredData?.map((items)=>items.name))
 
 
-  useEffect(()=>{
-    if(data!=[]){
+useEffect(()=>{
+    if(!storedData){
       // axios.get('http://localhost:3001/realestate')
       axios.get('https://mybackend1.herokuapp.com/realestate')
       .then(function (response) {
@@ -42,31 +44,35 @@ const Inventory = (props) => {
       })
     }
   },[])
-  
 
 useMemo(()=>{
-   if(count===12){
+   if(count===storedData?.length){
     setCount(true)
   }
 },
-[data,count])
+[storedData,count])
 
-var filteredData
+useEffect(() => {
+    // runs on location, i.e. route, change
+    dispatch(stateActions.reset())
+    setData(storedData)
+    // console.log('handle route change here', location)
+  }, [location])
+
 
 useMemo(()=>{
-  filteredData=Object.values(data)?.filter(obj=>obj.name.toLowerCase()?.includes(searchTerm.toLowerCase()))
-  if (filteredData?.length>6){
-    filteredData=filteredData?.slice(0,6)
+  if(focused){
+    setFiltered(Object.values(storedData)?.filter(obj=>obj.name.toLowerCase()?.includes(searchTerm.toLowerCase())))
+    if (filteredData?.length>6){
+      setFiltered(filteredData?.slice(0,6))
+    }
+    if(searchTerm.length===0){
+      setFiltered([])
+    }
   }
-  if(filteredData?.length===storedData?.length){
-    filteredData=[]
-  }
-  // if(filteredData?.length===0){
-  //   filteredData=[{name:"no item found",key:"none"}]
-  // }
  }
 ,
-[searchTerm])
+[searchTerm,focused])
 
 
 useEffect(()=>{
@@ -78,20 +84,13 @@ useEffect(()=>{
 
 
 const filtering=(id)=>{
-  
   const clickedItem=filteredData?.find((obj)=>obj._id===id)
 
   setData([clickedItem])
   const scroll=document.getElementById('scroll')
   scroll.scrollIntoView({behavior:'smooth'})
-  
-  // if(!clickedItem){
-  //   console.log("empty")
-  //   setData("")
-  //   return
-  // }
+  setFocus(false)
 }
-
 
 return (
     <Fragment>
@@ -100,7 +99,7 @@ return (
      </div>
      <div style={{display:reachCount?'block':'none'}}>
         <SearchInput className={classes.serachinput}  onFocus={()=>setFocus(true)} onChange={(input)=>setTerm(input)} />
-        {(focused&&filteredData?.length>0)?(filteredData?.map(items => {
+        {(focused&&filteredData.length>0)?(filteredData.map(items => {
           return (
             <div className= {classes.searchBar} key={items._id} onClick={()=>filtering(items._id)}> 
               <h5 >{items.name}</h5>
@@ -109,12 +108,12 @@ return (
               <h5 >${items.price}</h5>
             </div>
           )
-        })):searchTerm?<div className= {classes.noresult}><h5 >No result found</h5></div>:null}
+        })):((filteredData.length===0&&focused&&searchTerm)?<div className= {classes.noresult}><h5 >No result found</h5></div>:null)}
       </div>
      <section className={classes.products} style={{display:reachCount?'block':'none'}}>
       <h2>Inventory</h2>
         <ul id="scroll">
-          {data?.map(product=><ProductItem
+          {(data)?.map(product=><ProductItem
             key={product._id}
             id={product._id}
             title={product.name}

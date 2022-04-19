@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick.css';
 import "slick-carousel/slick/slick-theme.css";
 
 const ProductItem = (props) => {
-  const { title, price, description,image1,image2,image3,id} = props;
+  const { title, price, description,image1,image2,image3,id,mileage} = props;
   
   const [nav1,setSlider1]=useState("")
   const [nav2,setSlider2]=useState("")
@@ -37,7 +37,7 @@ const ProductItem = (props) => {
         <header>
           <div>
           <h3 >{title}</h3>
-          <h5 >hi</h5>
+          <h5 >{mileage} KM</h5>
           <h5 >hi</h5>
           </div>
           <div className={classes.price}>${parseInt(price)}</div>

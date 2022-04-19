@@ -36,7 +36,7 @@ const Form = (props) => {
   const livingroom=useRef(0);
   const otherOption=useRef("");
   const brand=useRef("")
-  const model=useRef("")
+  const year=useRef("")
 
 
   function submitFormHandler(event) { 
@@ -51,7 +51,7 @@ const Form = (props) => {
     const enteredLivingroom=livingroom.current.value;
     const enteredOther=otherOption.current.value
     const enteredBrand=brand.current.value
-    const enteredModel=model.current.value
+    const enteredYear=year.current.value
     //--------------check other option---------------------//
     var other="";
     if(selected.find((select)=>
@@ -98,6 +98,7 @@ const Form = (props) => {
     //       name: enteredName,
     //       contact:enteredContact,
     //       address:enteredAddress,
+    //       mileage:enteredYear
     //       selected:selected.map((item)=>
     //         item.value)||null,
     //       other:enteredOther||null,
@@ -145,7 +146,7 @@ const Form = (props) => {
           </div>
           <div className={classes.control}>
          <div className={classes.selection}>
-         <label><DriveEtaIcon/> Driven Kilometer
+         <label><DriveEtaIcon/> Mileage
          <input
           type="number"
           min="0"
@@ -158,10 +159,12 @@ const Form = (props) => {
           ref={brand}
             />
          </label>
-         <label>Model
+         <label>Manufactured Year
          <input
-          type="text"
-          ref={model}
+          type="number"
+          min="0"
+          max="2050"
+          ref={year}
             />
          </label>
          </div>

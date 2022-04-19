@@ -13,6 +13,7 @@ const Admin=()=>{
     const description=useRef("");
     const name=useRef("");
     const item=useRef("");
+    const mileage=useRef("")
     const alert=useAlert();
 
     const navigate=useNavigate();
@@ -35,8 +36,9 @@ const Admin=()=>{
         formData.append('price',price.current.value)
         formData.append('description',description.current.value)
         formData.append('name',name.current.value)
+        formData.append('mileage',mileage.current.value)
          
-        console.log(token)
+      
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         };
@@ -47,6 +49,11 @@ const Admin=()=>{
           config
         ).then((response)=>{
             alert.show("Images successfully uploaded")
+            name.current.value="";
+            mileage.current.value="";
+            description.current.value="";
+            price.current.value="";
+
         }   
         ).catch(function(error){
             alert.error(error.response.data)
@@ -95,6 +102,10 @@ const Admin=()=>{
                 <input type="text" ref={name}/>
             </div>
             <div>
+                <label>Mileage</label>
+                <input type="number" min="0" ref={mileage}/>
+            </div>
+            <div>
                 <label>Description</label>
                 <textarea rows={3} type="text"ref={description} />
             </div>
@@ -112,7 +123,7 @@ const Admin=()=>{
         <Button>Submit</Button>
     </form>
 
-    <button onClick={logOut}>Log Out</button>
+    <Button className={classes.logout} onClick={logOut}>Log Out</Button>
     </Fragment>
     )
 }

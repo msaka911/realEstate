@@ -19,6 +19,9 @@ const stateSlice = createSlice({
     increament(state){
       state.count++
     },
+    reset(state){
+      state.count=0
+    },
     setItems(state,action){
       state.items=action.payload
     }
