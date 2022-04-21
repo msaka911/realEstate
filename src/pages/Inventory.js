@@ -32,8 +32,8 @@ const Inventory = (props) => {
 
 useEffect(()=>{
   if(!storedData){
-    axios.get('http://localhost:3001/realestate')
-    // axios.get('https://mybackend1.herokuapp.com/realestate')
+    // axios.get('http://localhost:3001/realestate')
+    axios.get('https://mybackend1.herokuapp.com/auto')
     .then(function (response) {
       dispatch(stateActions.setItems(response.data),
       setData(response.data),
