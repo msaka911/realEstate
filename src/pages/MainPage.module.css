@@ -16,7 +16,7 @@ img{
    line-height: 1.5rem;
 }
 
-h1{
+.welcome h1{
     font-size: 5.5rem;
 }
 h2{
@@ -82,5 +82,44 @@ h3{
     position: relative;
     width: 100%;
     align-self: center;
+}
+
+.media{
+    color: white;
+    text-align: center;
+    align-self: center;
+    margin-top: 7rem;
+    
+}
+
+.media header h2,.meida header h1{
+    font-size: 2rem;
+    line-height: 1.5rem;
+}
+
+.mediaSection{
+    margin: 5rem 0.5rem;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    height:fit-content;
+}
+
+.mediaSection h2{
+    font-size: 1.5rem;
+     margin-right: 0.5rem;
+}
+
+.mediaGroup img{
+    position: relative;
+    width: 100%;
+    right:0;
+}
+
+.mediaGroup{
+  display: flex;
+  overflow-x: hidden;
+  color: white;
 }
 

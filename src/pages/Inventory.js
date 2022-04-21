@@ -31,18 +31,19 @@ const Inventory = (props) => {
 
 
 useEffect(()=>{
-    if(!storedData){
-      // axios.get('http://localhost:3001/realestate')
-      axios.get('https://mybackend1.herokuapp.com/realestate')
-      .then(function (response) {
-        dispatch(stateActions.setItems(response.data),
-        setData(response.data),
-        console.log("hi")
-        )})
-      .catch(function (error) {
-        alert.error("cannot load the page")
-      })
-    }
+  if(!storedData){
+    axios.get('http://localhost:3001/realestate')
+    // axios.get('https://mybackend1.herokuapp.com/realestate')
+    .then(function (response) {
+      dispatch(stateActions.setItems(response.data),
+      setData(response.data),
+      console.log("hi")
+      )})
+    .catch(function (error) {
+      alert.error("cannot load the page")
+    })
+  }
+ 
   },[])
 
 useMemo(()=>{

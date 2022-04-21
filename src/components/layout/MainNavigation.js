@@ -2,10 +2,14 @@ import { NavLink } from 'react-router-dom';
 
 
 import classes from './MainNavigation.module.css';
+import { useSelector } from 'react-redux';
 
 const MainNavigation = () => {
+
+  const screen=useSelector(state=>state.smallScreen)
+
   return (
-    <header className={classes.header}>
+    <header className={screen?classes.media:classes.header}>
       <div className={classes.top}>
       <div className={classes.logo}>YST AUTO</div>
       <div className={classes.contact}>Contact Info</div>
@@ -22,11 +26,7 @@ const MainNavigation = () => {
               Inventory
             </NavLink>
           </li>
-          <li>
-          <NavLink to='/sell'  className={(navData) => (navData.isActive ? `${classes.active}` : '')}>
-              Sell Your Car
-            </NavLink>
-          </li>
+
           <li>
           <NavLink to='/new-quote'  className={(navData) => (navData.isActive ? `${classes.active}` : '')}>
               File A Quote

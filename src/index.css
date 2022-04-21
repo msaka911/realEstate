@@ -62,16 +62,23 @@ body {
   color: white;
 }
 
-.slick-prev:before,
-.slick-next:before {
-  color: black !important;
-  font-size: 3.4rem !important;
-  margin: 0 -5rem;
-}
 
-.slick-dots li button:before {
+
+
+ /* .slick-prev:before, .slick-next:before  {
+
+  font-size: 3rem ;
+  color: black ;
+}  */
+
+
+  
+  
+
+
+/* .slick-dots li button:before {
   font-family: 'slick';
   line-height: 20px;
   font-size: 0.5rem !important;
-  /* more CSS */
-}
+} */
+

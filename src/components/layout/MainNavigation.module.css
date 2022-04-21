@@ -48,3 +48,19 @@
   justify-content: space-between;
   color: white;
 }
+
+.media nav ul li{
+  color: white;
+  display: inline;
+  border-radius: 1rem;
+  font-size: 0.7rem;
+  text-align: center;
+  justify-content: space-around;
+  align-self: center;
+  white-space: nowrap
+}
+
+
+.media div{
+  white-space: nowrap
+}

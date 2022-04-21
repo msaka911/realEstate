@@ -24,6 +24,7 @@ const ProductItem = (props) => {
     slidesToScroll: 1,
     fade: true,
     autoplay: false,
+    
   };
 
 

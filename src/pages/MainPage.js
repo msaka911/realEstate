@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import { Fragment } from 'react/cjs/react.production.min';
@@ -11,15 +11,28 @@ import group from "../assets/interior.png"
 import finance from "../assets/Finance-Icon.jpeg"
 import warranty from "../assets/Warranty-Icon.jpeg"
 import lease from "../assets/Lease-Icon.jpeg"
+import { useDispatch, useSelector } from 'react-redux';
+import { stateActions } from '../store/store';
 
 const MainPage = () => {
   const { ref } = useParallax({ speed: -40 })
+ 
+  const dispatch=useDispatch();
+  const screen=useSelector(state=>state.smallScreen)
+  console.log(screen)
   const navigate=useNavigate();
+
+  useEffect(()=>{
+    const handler = e => dispatch(stateActions.setSmallScreen(!e.matches));
+    window.matchMedia("(min-width: 726px)").addEventListener('change', handler);
+  })
+  
+
 
 
   return (
   <Fragment>
-  <header className={classes.welcome}>
+  <header className={screen?classes.media:classes.welcome}>
     <h2>Welcome To</h2>
     <h1>YST Auto Sales</h1>
     <img  ref={ref}  src={image}></img>
@@ -36,7 +49,7 @@ const MainPage = () => {
     <img src={warranty}/>
     </Card>
   </section>
-  <section className={classes.introduction}>
+  <section className={screen?classes.mediaSection:classes.introduction}>
    <h2>BUY WITH CONFIDENCE</h2>
    <p>With our amazing collection on the lot, we guarantee you’ll be extremely satisfied with your choices. Come and test drive one now. 
       Sometimes we offer an incredible discount on a select vehicle. Right now, that includes our extensive Vehicle collection. Whether you’re 
@@ -44,7 +57,7 @@ const MainPage = () => {
    </p>
   </section>
 
-  <section className={classes.group}>
+  <section className={screen?classes.mediaGroup:classes.group}>
   <h2>Auto Group</h2>
   <img src={group} ></img>
   </section>

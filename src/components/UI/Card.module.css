@@ -21,3 +21,32 @@
   cursor: pointer;
 }
 
+.media{
+  padding: 1rem;
+  margin: 0.5rem;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: white;
+  display: flex;
+  flex-flow:column;
+  text-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.media Button{
+  text-align: center;
+  font-size: 0.5rem;
+  font-weight: 400;
+  margin:-2rem;
+  cursor: pointer;
+  white-space: nowrap;
+  position: absolute;
+  bottom: 0%;
+  max-width: 50%;
+  padding:0 auto;
+  margin: -2rem auto;
+  padding:auto;
+  justify-content: center;
+}
+
