@@ -1,12 +1,11 @@
 import classes from './Card.module.css';
 import Button from './Button';
-import { useSelector } from 'react-redux';
-
+import { isMobile } from 'react-device-detect';
 const Card = (props) => {
-  const screen=useSelector(state=>state.smallScreen)
+
 
   return (  
-  <div className={screen?classes.media:classes.card}>
+  <div className={isMobile?classes.media:classes.card}>
     {props.children}
       <h3>{props.title}</h3>
      <label>{props.description}</label>

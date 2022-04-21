@@ -7,9 +7,7 @@ const stateSlice = createSlice({
       loggedin:false,
       token:"",
       count:0,
-      items:null,
-      smallScreen:window.matchMedia("(min-width: 726px)").matches
-  },
+      items:null,  },
   reducers: {
     setState(state,action) {
       state.loggedin = action.payload;
@@ -26,9 +24,6 @@ const stateSlice = createSlice({
     setItems(state,action){
       state.items=action.payload
     },
-    setSmallScreen(state,action){
-      state.smallScreen=action.payload
-    }
   },
 });
 

@@ -2,14 +2,13 @@ import { NavLink } from 'react-router-dom';
 
 
 import classes from './MainNavigation.module.css';
-import { useSelector } from 'react-redux';
 
+import { isMobile } from 'react-device-detect';
 const MainNavigation = () => {
 
-  const screen=useSelector(state=>state.smallScreen)
 
   return (
-    <header className={screen?classes.media:classes.header}>
+    <header className={isMobile?classes.media:classes.header}>
       <div className={classes.top}>
       <div className={classes.logo}>YST AUTO</div>
       <div className={classes.contact}>Contact Info</div>
