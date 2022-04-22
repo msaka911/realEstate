@@ -38,3 +38,21 @@
 }
 
 
+.media {
+    display: flex;
+    flex-direction: column;
+}
+
+.media div{
+    display: flex;
+    margin-top: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.3rem;
+}
+
+
+
+.media h3{
+    color:red
+}

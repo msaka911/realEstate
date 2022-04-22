@@ -4,7 +4,7 @@ import { useAlert } from 'react-alert'
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
 import DriveEtaIcon from '@mui/icons-material/DriveEta';
-
+import { isMobile } from 'react-device-detect';
 
 
 import classes from './Form.module.css';
@@ -145,7 +145,7 @@ const Form = (props) => {
             <input type='text' placeholder='Tel' id='contact' ref={contactRef} />
           </div>
           <div className={classes.control}>
-         <div className={classes.selection}>
+         <div className={isMobile?classes.media:classes.selection}>
          <label><DriveEtaIcon/> Mileage
          <input
           type="number"

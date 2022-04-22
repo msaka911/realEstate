@@ -64,3 +64,11 @@
 .media div{
   white-space: nowrap
 }
+
+.media{
+  width: 100%;
+  height: 10rem;
+  display: inline-block;
+  background-color: rgb(34, 34, 34);
+
+}

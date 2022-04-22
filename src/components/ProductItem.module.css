@@ -23,7 +23,8 @@ h5{
   background-color: #3a3a3a;
   color: white;
   font-size: 1.1rem;
-  width: fit-content
+  width: fit-content;
+  margin-bottom: 0.3rem;
 }
 
 .item p {
@@ -71,5 +72,33 @@ h5{
     background-color: white;
     padding: 0.7rem;
     width: 45rem;
+}
+
+.media{
+  margin: 0;
+  border-radius: 6px;
+  border-color: white;
+  border-bottom:white dotted 0.1rem;
+  padding: 0.7rem;
+  width: 100%;
+  color: white;
+}
+
+
+.slider img{
+  position: relative;
+  margin: 0 auto;
+  height: 15rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  overflow-x: hidden;
+}
+
+.media header{
+  display: flex;
+  flex-direction: row;
+  line-height: 1rem;
+  justify-content: space-between;
+  align-items: baseline;
 }
 

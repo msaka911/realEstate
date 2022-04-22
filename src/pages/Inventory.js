@@ -8,6 +8,7 @@ import { Fragment } from 'react/cjs/react.production.min';
 import { stateActions } from '../store/store';
 import SearchInput, {createFilter} from 'react-search-input'
 import { useLocation } from 'react-router-dom';
+import { isMobile } from 'react-device-detect';
 
 const axios = require('axios');
 
@@ -99,10 +100,10 @@ return (
               <LoadingSpinner />
      </div>
      <div style={{display:reachCount?'block':'none'}}>
-        <SearchInput className={classes.serachinput}  onFocus={()=>setFocus(true)} onChange={(input)=>setTerm(input)} />
+        <SearchInput className={isMobile?classes.media:classes.serachinput}  onFocus={()=>setFocus(true)} onChange={(input)=>setTerm(input)} />
         {(focused&&filteredData.length>0)?(filteredData.map(items => {
           return (
-            <div className= {classes.searchBar} key={items._id} onClick={()=>filtering(items._id)}> 
+            <div className= {isMobile?classes.mediaSearchBar:classes.searchBar} key={items._id} onClick={()=>filtering(items._id)}> 
               <h5 >{items.name}</h5>
               <img src={`data:image/jpeg;base64,${items.image1}`}  alt="Image1"/>
               {/* <h5 >{items.brand}</h5> */}

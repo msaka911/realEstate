@@ -7,6 +7,7 @@ import Slider from "react-slick";
 
 import 'slick-carousel/slick/slick.css';
 import "slick-carousel/slick/slick-theme.css";
+import { isMobile } from 'react-device-detect';
 
 const ProductItem = (props) => {
   const { title, price, description,image1,image2,image3,id,mileage} = props;
@@ -24,7 +25,6 @@ const ProductItem = (props) => {
     slidesToScroll: 1,
     fade: true,
     autoplay: false,
-    
   };
 
 
@@ -34,7 +34,7 @@ const ProductItem = (props) => {
 
   return (
     <li className={classes.item} key={id}>
-      <div className={classes.card}>
+      <div className={isMobile?classes.media:classes.card}>
         <header>
           <div>
           <h3 >{title}</h3>
@@ -45,6 +45,7 @@ const ProductItem = (props) => {
         </header>
         <div className={classes.container}>
       <Slider 
+          className={isMobile?classes.slider:null}
           {...settings} 
           asNavFor={nav2}
           ref={slider => (setSlider1(slider))}>
@@ -79,10 +80,8 @@ const ProductItem = (props) => {
         </Slider>
         </div>
         </div>
-          <p>{description}</p>
-          
+          <p style={{color:"white", margin:"0.1rem 1.3rem"}}>{description}</p>
           <div className={classes.actions}>
-        {/* <button onClick={adding}>Adding to quote cart</button> */}
         </div>
       </div>
     </li>

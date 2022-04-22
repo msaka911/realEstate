@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux"
 import { stateActions } from '../store/store';
 import {useNavigate} from 'react-router-dom';
 import { useAlert } from 'react-alert'
-
+import { isMobile } from "react-device-detect";
 
 const Login=()=>{
     const loggedin = useSelector((state) => state.loggedin);
@@ -45,11 +45,11 @@ const Login=()=>{
 
 
     return(
-        <form className={classes.form} onSubmit={submit}>
+        <form className={isMobile?classes.media:classes.form} onSubmit={submit}>
             <h2>Login Page</h2>
             <div className={classes.username}>
-                    <label> username</label>
-                    <input ref={username}></input>
+                    <label > username</label>
+                    <input placeholder="email" ref={username}></input>
             </div>
             <div className={classes.password}>
                     <label> password</label>

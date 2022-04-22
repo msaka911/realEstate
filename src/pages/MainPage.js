@@ -14,7 +14,7 @@ import lease from "../assets/Lease-Icon.jpeg"
 import { isMobile } from 'react-device-detect';
 
 const MainPage = () => {
-  const { ref } = useParallax({ speed: -40 })
+  const { ref } = useParallax({ speed: (isMobile?-10:-40) })
  
 
   const navigate=useNavigate();

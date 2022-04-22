@@ -70,17 +70,16 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items:flex-end;
     vertical-align:bottom;
     text-align: center;
   }
   .selection input{
-    width: 8.5rem ;
+    flex: 1;
   }
   
   .selection label{
     margin-right: 1.7rem;
-    
   }
 
   .card{

@@ -31,3 +31,28 @@
     border-radius: 0.2rem;
     cursor: pointer;
 }
+
+.media{
+    align-self: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+.media button{
+    color: white;
+    background-color: black;
+    margin:1rem 2rem;
+    padding:0.5rem;
+    border-color: black;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+
+.media label, .media input{
+    font-size: 1.1rem;
+}

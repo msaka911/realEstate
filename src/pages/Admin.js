@@ -6,6 +6,7 @@ import Button from "../components/UI/Button"
 import { useRef} from "react"
 import { stateActions } from "../store/store"
 import { useNavigate } from "react-router-dom"
+import { isMobile } from "react-device-detect"
 
 const Admin=()=>{
     const files=useRef("")
@@ -91,7 +92,7 @@ const Admin=()=>{
     <Fragment>
         <form className={classes.card} onSubmit={uploadFile}>
          <h3>Upload</h3>
-            <div className={classes.wrapper}>
+            <div className={isMobile?classes.media:classes.wrapper}>
             <input type="file" multiple ref={files}/>
             <div>
                 <label>Price</label>
