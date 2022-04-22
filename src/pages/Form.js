@@ -14,11 +14,10 @@ const Form = (props) => {
 //------------options for select------------
   const animatedComponents = makeAnimated();
   const options = [
-    { value: 'basement', label: 'Basement' },
-    { value: 'window Wipe', label: 'Window Wipe' },
-    { value: 'carpet', label: 'Carpet' },
-    { value: 'electrial', label: 'Electrial Appliance' },
-    { value: 'other', label: 'Other' }
+    { value: 'free of accident', label: 'Free of Accident' },
+    { value: 'free of repair', label: 'Free of repair' },
+    { value: 'second-hand', label: 'Second-Hand' },
+    { value: 'lease transfer', label: 'Lease Transfer' },
   ]
   const[selected,setSelect]=useState([]);
 
@@ -168,7 +167,7 @@ const Form = (props) => {
             />
          </label>
          </div>
-          <label htmlFor='select'>Selection for extra service</label>
+          <label htmlFor='select'>Selection for extra details</label>
           <Select 
           // closeMenuOnSelect={false}
           className={classes.control} 
