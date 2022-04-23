@@ -42,7 +42,7 @@ const Admin=()=>{
       
         const config = {
             headers: { Authorization: `Bearer ${token}`,
-                      'Access-Control-Allow-Origin' : '*',                    },
+                      },
             
         };
         
