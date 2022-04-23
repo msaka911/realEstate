@@ -41,7 +41,11 @@ const Admin=()=>{
          
       
         const config = {
-            headers: { Authorization: `Bearer ${token}` }
+            headers: { Authorization: `Bearer ${token}`,
+                      'Access-Control-Allow-Origin' : '*',
+                      'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                    },
+            
         };
         
         axios.post('https://mybackend1.herokuapp.com/auto/upload',
