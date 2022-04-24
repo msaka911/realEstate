@@ -21,59 +21,31 @@ const Form = (props) => {
   ]
   const[selected,setSelect]=useState([]);
 
-
-
 //----------------------------------------
 
   const alert = useAlert()
-  const emailInputRef = useRef();
   const nameInputRef = useRef();
   const contactRef=useRef();
   const addressRef=useRef();
   const appointmentRef=useRef(" ");
   const distance=useRef(0);
-  const livingroom=useRef(0);
-  const otherOption=useRef("");
   const brand=useRef("")
   const year=useRef("")
+  const vin=useRef("")
 
 
   function submitFormHandler(event) { 
     event.preventDefault();
     const axios = require('axios');
-    const enteredEmail = emailInputRef.current.value;
     const enteredName = nameInputRef.current.value;
     const enteredContact=contactRef.current.value;
     const enteredAddress=addressRef.current.value;
-    const enteredAppointment=appointmentRef.current.value;
-    const enteredDistance=distance.current.value;
-    const enteredLivingroom=livingroom.current.value;
-    const enteredOther=otherOption.current.value
     const enteredBrand=brand.current.value
     const enteredYear=year.current.value
-    //--------------check other option---------------------//
-    var other="";
-    if(selected.find((select)=>
-    select.value==="other"
-  )){
-       if(!enteredOther){
-          document.getElementById('other').style.borderColor='red';
-          alert.error("Please enter value for other",{onClose:()=>{
-          document.getElementById('other').style.borderColor='black';
-        }
-       })}
-       else{
-         other=enteredOther
-       }
-    }
+    const enteredAppointment=appointmentRef.current.value
+    const enteredVin=vin.current.value
+
     //--------------check email, zip code, phone number---------------------//
-    if(!validator.isEmail(enteredEmail)){
-      document.getElementById('email').style.borderColor='red';
-      alert.error("Please enter valid email",{onClose:()=>{
-        document.getElementById('email').style.borderColor='black';
-      }})
-      return
-    }
 
     if(!validator.isMobilePhone(enteredContact,['en-CA'])){
       document.getElementById('contact').style.borderColor='red';
@@ -90,27 +62,25 @@ const Form = (props) => {
       }})
       return
     }
-
     // if(validator.isMobilePhone(enteredContact,['en-CA'])&&validator.isEmail(enteredEmail)){
     //     axios.post('https://mybackend1.herokuapp.com/appointment',{
-    //       email:enteredEmail,
     //       name: enteredName,
     //       contact:enteredContact,
     //       address:enteredAddress,
-    //       mileage:enteredYear
-    //       selected:selected.map((item)=>
-    //         item.value)||null,
-    //       other:enteredOther||null,
-    //       Drivedistance:enteredDistance,
-    //       livingroom:enteredLivingroom||null,
+    //       brand: enteredBrand,
+    //       vin:enteredVin,
+    //       mileage:enteredDistance,
+    //       manufacture:enteredYear,
     //       appointment:enteredAppointment
     //     })
     //     .then(function (response) {
     //     alert.show("Thanks! \n We will process your request asap")
     //     document.getElementById('name').value="";
-    //     document.getElementById('email').value="";
     //     document.getElementById('contact').value="";
     //     document.getElementById('address').value=""
+    //     document.getElementById('vin').value=""
+    //     document.getElementById('mileage').value=""
+    //     document.getElementById('brand').value=""
     //     document.getElementById('appointment').value=""
     //     })
     //     .catch(function (error) {
@@ -127,14 +97,9 @@ const Form = (props) => {
     <Fragment>
       <div className={classes.card} clicked={props.clicked}>
         <form
-          
           className={classes.form}
           onSubmit={submitFormHandler}
         >
-          <div className={classes.control}>
-            <label htmlFor='email'>Email</label>
-            <input type='text' placeholder='Email' id='email' ref={emailInputRef} />
-          </div>
           <div className={classes.control}>
             <label htmlFor='name'>Name</label>
             <input type='text' placeholder='Name' id='name' ref={nameInputRef} />
@@ -144,16 +109,22 @@ const Form = (props) => {
             <input type='text' placeholder='Tel' id='contact' ref={contactRef} />
           </div>
           <div className={classes.control}>
+            <label htmlFor='text'>Vehicle vin#</label>
+            <input type='text' placeholder='Vin#' id='vin' ref={vin} />
+          </div>
+          <div className={classes.control}>
          <div className={isMobile?classes.media:classes.selection}>
          <label><DriveEtaIcon/> Mileage
          <input
+          id="mileage"
           type="number"
           min="0"
           ref={distance}
             />
          </label>
-         <label>Brand
+         <label>Brand/Model
          <input
+          id="brand"
           type="text"
           ref={brand}
             />
@@ -161,7 +132,7 @@ const Form = (props) => {
          <label>Manufactured Year
          <input
           type="number"
-          min="0"
+          min="2000"
           max="2050"
           ref={year}
             />
@@ -175,24 +146,18 @@ const Form = (props) => {
           isMulti
           onChange={options=>{setSelect(options)}}
           options={options}/>
-          {selected.find((option)=>
-            option.value==="other")? <input className={classes.other} type='text' placeholder='Other' id='other' ref={otherOption} />:false}
           </div>
-
           <div className={classes.control}>
             <label htmlFor='postal code'>Postal Code</label>
             <input  className={classes.postal} type='text' placeholder='Zip Code' id='address' ref={addressRef} />
-            <label>*Extra charge may apply for remote area</label>
           </div>
           <div className={classes.control}>
             <label htmlFor='appointment'>Vehicle Detail</label>
             <textarea type='text' rows={3} placeholder='Detail' id='appointment' ref={appointmentRef} />
           </div>
-          
           <div className={classes.actions}>
             <button onClick={submitFormHandler} className='btn'>Submit</button>
           </div>
-          
         </form>
       </div>
     </Fragment>
