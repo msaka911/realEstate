@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 
 import { Fragment } from 'react/cjs/react.production.min';
 import { useParallax } from 'react-scroll-parallax';
-import image from "../assets/Hero-Image.jpg"
+import image from "../assets/Hero-Image.jpeg"
 import classes from './MainPage.module.css';
 import Card from '../components/UI/Card';
 import Button from '../components/UI/Button';
@@ -43,11 +43,33 @@ const MainPage = () => {
    
     },[])
 
+  //page animation
+  const allSections = document.querySelectorAll('section');
+  const revealSection = function (entries, observer) {
+    const [entry] = entries;
+  
+    if (!entry.isIntersecting) return;
+  
+    entry.target.classList.remove('section--hidden');
+    observer.unobserve(entry.target);
+  };
+  
+  const sectionObserver = new IntersectionObserver(revealSection, {
+    root: null,
+    threshold: 0.15,
+  });
+  
+  allSections.forEach(function (section) {
+    sectionObserver.observe(section);
+    section.classList.add('section--hidden');
+  });
+
+
   return (
   <Fragment>
   <header className={isMobile?classes.media:classes.welcome}>
     <h2>Welcome To</h2>
-    <h1>Number 1 Real Estate</h1>
+    <h1> <span class="highlight">Number 1</span> Real Estate</h1>
     <img  ref={ref}  src={image}></img>
     <Button onClick={()=>{navigate('/inventory')}}>Inventory</Button>
   </header>
@@ -86,6 +108,15 @@ const MainPage = () => {
   <h2>Renovation Team</h2>
   <img src={group} ></img>
   </section>
+
+  <section class="section section--quote">
+      <div class="section__title">
+        <h3 class="section__header">
+          Get free quote for your house now!
+        </h3>
+      </div>
+      <button class="btn"  onClick={()=>{navigate(`/new-quote`)}}>Free Quote!</button>
+    </section>
 
 
   </Fragment>
