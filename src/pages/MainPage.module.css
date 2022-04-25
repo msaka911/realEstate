@@ -131,3 +131,32 @@ h3{
     z-index: -1;
     max-width: 120%;
 }
+
+
+.display{
+    column-count: 2;
+    width: 100%;
+    margin:1.5rem;
+}
+
+.item{
+display: flex;
+flex-direction: column;
+border-radius: 6px;
+background-color: white;
+padding: 1rem;
+margin-bottom: 1rem;
+line-height: 1rem;
+page-break-inside: avoid;
+justify-content: center;
+width:90%;
+}
+
+.item img{
+    position: relative;
+    margin: 0 auto;
+    height:10rem;
+    width: 15rem;
+    border-radius: 0.5rem;
+    z-index: 1;
+}

@@ -8,13 +8,14 @@ import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import "slick-carousel/slick/slick-theme.css";
 import { isMobile } from 'react-device-detect';
+import { useNavigate } from 'react-router-dom';
 
 const ProductItem = (props) => {
   const { title, price, description,image1,image2,image3,id,mileage} = props;
   
   const [nav1,setSlider1]=useState("")
   const [nav2,setSlider2]=useState("")
-  
+  const navigate=useNavigate();
   const dispatch=useDispatch();
 
   const settings = {
@@ -26,8 +27,7 @@ const ProductItem = (props) => {
     fade: true,
     autoplay: false,
   };
-
-
+  
 
 
   //---------adding active dots----------
@@ -45,18 +45,24 @@ const ProductItem = (props) => {
         </header>
         <div className={classes.container}>
       <Slider 
-          className={isMobile?classes.slider:null}
+          className={isMobile?classes.slider:classes.slider1}
           {...settings} 
           asNavFor={nav2}
           ref={slider => (setSlider1(slider))}>
           <div>
-          <img src={`data:image/jpeg;base64,${image1}`} alt="Image1" onLoad={()=>dispatch(stateActions.increament())}/>
+          <img src={`data:image/jpeg;base64,${image1}`} alt="Image1" 
+          onClick={()=> navigate(`/details/${id}`)}
+          onLoad={()=>dispatch(stateActions.increament())}/>
           </div>
           <div>
-          <img src={`data:image/jpeg;base64,${image2}`}  alt="Image2" onLoad={()=>dispatch(stateActions.increament())}/>
+          <img src={`data:image/jpeg;base64,${image2}`}  alt="Image2" 
+          onClick={()=> navigate(`/details/${id}`)}
+          onLoad={()=>dispatch(stateActions.increament())}/>
           </div>
           <div>
-          <img src={`data:image/jpeg;base64,${image3}`}  alt="Image3"onLoad={()=>dispatch(stateActions.increament())}/>
+          <img src={`data:image/jpeg;base64,${image3}`}  alt="Image3"
+          onClick={()=>navigate(`/details/${id}`)}
+          onLoad={()=>dispatch(stateActions.increament())}/>
           </div>
           </Slider>
         <div className={classes.slider2}>

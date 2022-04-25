@@ -12,14 +12,36 @@ import finance from "../assets/Finance-Icon.jpeg"
 import warranty from "../assets/Warranty-Icon.jpeg"
 import lease from "../assets/Lease-Icon.jpeg"
 import { isMobile } from 'react-device-detect';
+import { useSelector,useDispatch} from 'react-redux';
+import { useEffect } from 'react';
+import { stateActions } from '../store/store';
+import { useAlert } from 'react-alert';
+
 
 const MainPage = () => {
   const { ref } = useParallax({ speed: (isMobile?-10:-40) })
- 
 
+  const storedData=useSelector(state=>state.items)
+  const dispatch=useDispatch();
   const navigate=useNavigate();
+  const axios = require('axios');
+  const alert=useAlert();
+  
+  
 
-
+  useEffect(()=>{
+    if(!storedData){
+      // axios.get('http://localhost:3001/realestate')
+      axios.get('https://mybackend1.herokuapp.com/auto')
+      .then(function (response) {
+        dispatch(stateActions.setItems(response.data),
+        )})
+      .catch(function (error) {
+        alert.error("cannot load the page")
+      })
+    }
+   
+    },[])
 
   return (
   <Fragment>
@@ -48,10 +70,23 @@ const MainPage = () => {
    </p>
   </section>
 
+  <section className={classes.display}>
+   {storedData?.map((items)=>{
+      return(            
+      <div key={items._id} className={classes.item}>  
+        <h5 >{items.name}</h5>
+        <img src={`data:image/jpeg;base64,${items.image1}`}  alt="Image1"/>
+        <h5 >${items.price}</h5>
+        <Button onClick={()=>{navigate(`/details/${items._id}`)}}>View Details</Button>
+    </div>)
+   })}
+  </section>
+
   <section className={isMobile?classes.mediaGroup:classes.group}>
   <h2>Auto Group</h2>
   <img src={group} ></img>
   </section>
+
 
   </Fragment>
   );

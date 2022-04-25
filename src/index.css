@@ -8,6 +8,7 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   font-family: sans-serif;
   margin: 0;
   background-color: #000000;
@@ -65,20 +66,31 @@ body {
 
 
 
- /* .slick-prev:before, .slick-next:before  {
+.slick-dots {
+  /* background-color: black !important; */
+  height: 2rem ;
+  font-size: 2rem;
+  }
 
-  font-size: 3rem ;
-  color: black ;
-}  */
+  .slick-dots li button:before
+  {
+      font-family: 'slick';
+      font-size: 0.6rem !important;
+      line-height: 20px;
+  }
 
-
-  
-  
-
-
-/* .slick-dots li button:before {
+.slick-prev:before,
+.slick-next:before{
   font-family: 'slick';
-  line-height: 20px;
-  font-size: 0.5rem !important;
-} */
+  line-height: 1;
+  opacity: .75;
+  color: black !important;
+  font-size: 2rem !important;
+} 
+
+.slick-prev, .slick-next { width: auto !important; height: auto !important;}
+  
+
+
+
 

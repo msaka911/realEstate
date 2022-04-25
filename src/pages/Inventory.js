@@ -10,7 +10,7 @@ import SearchInput, {createFilter} from 'react-search-input'
 import { useLocation } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 
-const axios = require('axios');
+
 
 
 const Inventory = (props) => {
@@ -22,7 +22,9 @@ const Inventory = (props) => {
   const [data,setData]=useState([])
   const [filteredData,setFiltered]=useState([])
 
+  const axios = require('axios');
   const alert=useAlert();
+  
   const dispatch=useDispatch()
   const count=useSelector(state=>state.count)
   const storedData=useSelector(state=>state.items)
@@ -112,8 +114,8 @@ return (
           )
         })):((filteredData.length===0&&focused&&searchTerm)?<div className= {classes.noresult}><h5 >No result found</h5></div>:null)}
       </div>
+     <h2>Inventory</h2>
      <section className={classes.products} style={{display:reachCount?'block':'none'}}>
-      <h2>Inventory</h2>
         <ul id="scroll">
           {(data)?.map(product=><ProductItem
             key={product._id}
