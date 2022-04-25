@@ -108,7 +108,6 @@ body {
 .highlight {
   position: relative;
 }
-
 .highlight::after {
   display: block;
   content: "";
