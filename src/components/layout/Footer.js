@@ -13,7 +13,7 @@ const Footer=()=>{
                 <h3>Contact Us</h3>
             </div>
             <div>
-                <h3>Hourse Of Operation</h3>
+                <h3>Hours Of Operation</h3>
             </div>
         </div>
         </Fragment>

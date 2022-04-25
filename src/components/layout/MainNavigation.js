@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 
 import classes from './MainNavigation.module.css';
-
+import HomeIcon from '@mui/icons-material/Home';
 import { isMobile } from 'react-device-detect';
 const MainNavigation = () => {
 
@@ -10,7 +10,7 @@ const MainNavigation = () => {
   return (
     <header className={isMobile?classes.media:classes.header}>
       <div className={classes.top}>
-      <div className={classes.logo}>YST AUTO</div>
+      <div className={classes.logo}><HomeIcon/>Real Estate</div>
       <div className={classes.contact}>Contact Info</div>
       </div>
       <nav className={classes.nav}>
@@ -22,13 +22,13 @@ const MainNavigation = () => {
           </li>
           <li>
           <NavLink to='/inventory'  className={(navData) => (navData.isActive ? `${classes.active}` : '')}>
-              Inventory
+              House Listing
             </NavLink>
           </li>
 
           <li>
           <NavLink to='/new-quote'  className={(navData) => (navData.isActive ? `${classes.active}` : '')}>
-              File A Quote
+              Free Quote
             </NavLink>
           </li>
           <li>

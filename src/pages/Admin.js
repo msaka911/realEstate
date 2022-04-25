@@ -46,7 +46,7 @@ const Admin=()=>{
             
         };
         
-        axios.post('https://mybackend1.herokuapp.com/auto/upload',
+        axios.post('https://mybackend1.herokuapp.com/realEstate/upload',
         // axios.post('http://localhost:3001/upload',
           formData,
           config
@@ -68,7 +68,7 @@ const Admin=()=>{
         const axios = require('axios');
         const deletedItem=item.current.value
         // axios.post(`http://localhost:3001/deleteItem?name=${deletedItem}`,{},
-        axios.post(`https://mybackend1.herokuapp.com/auto/deleteItem?name=${deletedItem}`,{},
+        axios.post(`https://mybackend1.herokuapp.com/realEstate/deleteItem?name=${deletedItem}`,{},
 
         {headers: {Authorization: `Bearer ${token}`}}
         ).then((response)=>{

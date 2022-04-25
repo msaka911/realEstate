@@ -3,11 +3,11 @@ import {useNavigate} from 'react-router-dom';
 
 import { Fragment } from 'react/cjs/react.production.min';
 import { useParallax } from 'react-scroll-parallax';
-import image from "../assets/Hero-Image.png"
+import image from "../assets/Hero-Image.jpg"
 import classes from './MainPage.module.css';
 import Card from '../components/UI/Card';
 import Button from '../components/UI/Button';
-import group from "../assets/interior.png"
+import group from "../assets/interior.jpg"
 import finance from "../assets/Finance-Icon.jpeg"
 import warranty from "../assets/Warranty-Icon.jpeg"
 import lease from "../assets/Lease-Icon.jpeg"
@@ -32,7 +32,7 @@ const MainPage = () => {
   useEffect(()=>{
     if(!storedData){
       // axios.get('http://localhost:3001/realestate')
-      axios.get('https://mybackend1.herokuapp.com/auto')
+      axios.get('https://mybackend1.herokuapp.com/realEstate')
       .then(function (response) {
         dispatch(stateActions.setItems(response.data),
         )})
@@ -47,18 +47,18 @@ const MainPage = () => {
   <Fragment>
   <header className={isMobile?classes.media:classes.welcome}>
     <h2>Welcome To</h2>
-    <h1>YST Auto Sales</h1>
+    <h1>Number 1 Real Estate</h1>
     <img  ref={ref}  src={image}></img>
     <Button onClick={()=>{navigate('/inventory')}}>Inventory</Button>
   </header>
   <section className={classes.section}>
-    <Card title="Finance" description="Our best advisors" button="Apply for Finance">
+    <Card title="Finance" description="Our best advisors" button="Apply for Loans">
       <img src={finance}/>
     </Card>
-    <Card title="Lease" description="Lease can be great options" button="Apply for Lease">
+    <Card title="W.S.I.B Insured" description="The best contractor in the industry" button="Apply for free quotation">
     <img src={lease}/>
     </Card>
-    <Card i title="Warranty" description="Extended Warranty" button="Know More">
+    <Card i title="Warranty" description="5 year Warranty" button="Know More">
     <img src={warranty}/>
     </Card>
   </section>
@@ -83,7 +83,7 @@ const MainPage = () => {
   </section>
 
   <section className={isMobile?classes.mediaGroup:classes.group}>
-  <h2>Auto Group</h2>
+  <h2>Renovation Team</h2>
   <img src={group} ></img>
   </section>
 
