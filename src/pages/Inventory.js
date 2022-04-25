@@ -108,7 +108,6 @@ return (
             <div className= {isMobile?classes.mediaSearchBar:classes.searchBar} key={items._id} onClick={()=>filtering(items._id)}> 
               <h5 >{items.name}</h5>
               <img src={`data:image/jpeg;base64,${items.image1}`}  alt="Image1"/>
-              {/* <h5 >{items.brand}</h5> */}
               <h5 >${items.price}</h5>
             </div>
           )
@@ -122,8 +121,7 @@ return (
             id={product._id}
             title={product.name}
             price={product.price}
-            brand={product.brand}
-            mileage={product.mileage}
+            area={product.area}
             description={product.description}
             image1={product.image1}
             image2={product.image2}

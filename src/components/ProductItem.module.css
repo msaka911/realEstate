@@ -45,7 +45,7 @@ h5{
 
 .item p {
   position: relative;
-  color: #3a3a3a;
+  color: #000000;
 }
 
 .actions {
@@ -64,8 +64,7 @@ h5{
 .container img{
   position: relative;
   margin: 0 auto;
-  height:13rem;
-  width: 20rem;
+  height:14rem;
   border-radius: 0.5rem;
   z-index: 3;
 }

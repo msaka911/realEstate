@@ -166,8 +166,8 @@ width:90%;
 .item img{
     position: relative;
     margin: 0 auto;
-    height:10rem;
-    width: 15rem;
+    height:14rem;
+    width: 70%;
     border-radius: 0.5rem;
     z-index: 1;
 }

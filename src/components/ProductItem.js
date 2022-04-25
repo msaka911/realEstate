@@ -11,7 +11,7 @@ import { isMobile } from 'react-device-detect';
 import { useNavigate } from 'react-router-dom';
 
 const ProductItem = (props) => {
-  const { title, price, description,image1,image2,image3,id,mileage} = props;
+  const { title, price, description,image1,image2,image3,id,area} = props;
   
   const [nav1,setSlider1]=useState("")
   const [nav2,setSlider2]=useState("")
@@ -38,7 +38,7 @@ const ProductItem = (props) => {
         <header>
           <div>
           <h3 >{title}</h3>
-          <h5 >{mileage} KM</h5>
+          <h5 >{area} sq.ft</h5>
           <h5 >hi</h5>
           </div>
           <div className={classes.price}>${parseInt(price)}</div>
@@ -86,7 +86,7 @@ const ProductItem = (props) => {
         </Slider>
         </div>
         </div>
-          <p style={{color:"white", margin:"0.1rem 1.3rem"}}>{description}</p>
+          <p style={{height:"2rem",color:"black",fontSize:"1rem",lineHeight:"1rem",margin:"0.1rem 1.3rem"}}>{description}</p>
           <div className={classes.actions}>
         </div>
       </div>

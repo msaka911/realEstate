@@ -14,7 +14,7 @@ const Admin=()=>{
     const description=useRef("");
     const name=useRef("");
     const item=useRef("");
-    const mileage=useRef("")
+    const area=useRef("")
     const alert=useAlert();
 
     const navigate=useNavigate();
@@ -37,7 +37,7 @@ const Admin=()=>{
         formData.append('price',price.current.value)
         formData.append('description',description.current.value)
         formData.append('name',name.current.value)
-        formData.append('mileage',mileage.current.value)
+        formData.append('area',area.current.value)
          
       
         const config = {
@@ -53,7 +53,7 @@ const Admin=()=>{
         ).then((response)=>{
             alert.show("Images successfully uploaded")
             name.current.value="";
-            mileage.current.value="";
+            area.current.value="";
             description.current.value="";
             price.current.value="";
 
@@ -105,8 +105,8 @@ const Admin=()=>{
                 <input type="text" ref={name}/>
             </div>
             <div>
-                <label>Mileage</label>
-                <input type="number" min="0" ref={mileage}/>
+                <label>Area sq.ft</label>
+                <input type="number" min="0" ref={area}/>
             </div>
             <div>
                 <label>Description</label>
