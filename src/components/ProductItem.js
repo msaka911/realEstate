@@ -50,17 +50,17 @@ const ProductItem = (props) => {
           asNavFor={nav2}
           ref={slider => (setSlider1(slider))}>
           <div>
-          <img src={`data:image/jpeg;base64,${image1}`} alt="Image1" 
+          <img src={`data:image/png;base64,${image1}`} alt="Image1" 
           onClick={()=> navigate(`/details/${id}`)}
           onLoad={()=>dispatch(stateActions.increament())}/>
           </div>
           <div>
-          <img src={`data:image/jpeg;base64,${image2}`}  alt="Image2" 
+          <img src={`data:image/png;base64,${image2}`}  alt="Image2" 
           onClick={()=> navigate(`/details/${id}`)}
           onLoad={()=>dispatch(stateActions.increament())}/>
           </div>
           <div>
-          <img src={`data:image/jpeg;base64,${image3}`}  alt="Image3"
+          <img src={`data:image/png;base64,${image3}`}  alt="Image3"
           onClick={()=>navigate(`/details/${id}`)}
           onLoad={()=>dispatch(stateActions.increament())}/>
           </div>
@@ -75,13 +75,13 @@ const ProductItem = (props) => {
           arrows={false}
         >          
         <div>
-        <img src={`data:image/jpeg;base64,${image1}`}  alt="Image1"/>
+        <img src={`data:image/png;base64,${image1}`}  alt="Image1"/>
         </div>
         <div>
-        <img src={`data:image/jpeg;base64,${image2}`}  alt="Image2"/>
+        <img src={`data:image/png;base64,${image2}`}  alt="Image2"/>
         </div>
         <div>
-        <img src={`data:image/jpeg;base64,${image3}`}  alt="Image3"/>
+        <img src={`data:image/png;base64,${image3}`}  alt="Image3"/>
         </div>
         </Slider>
         </div>
