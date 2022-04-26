@@ -15,7 +15,6 @@ const Details=()=>{
     const params=useParams();
     const getId=params.id
 
-
     const axios = require('axios');
     const alert=useAlert();
 //----------------------find one detail------------------
@@ -48,23 +47,23 @@ const Details=()=>{
     
     return(
         <Card>
-        <h2 className={classes.detail}>{storedData[0].name}</h2>
+        <h2 className={classes.detail}>{storedData.name}</h2>
         
         <Slider 
           className={classes.slider}
           {...settings} 
           >
           <div>
-          <img src={`data:image/jpeg;base64,${storedData[0].image1}`} alt="Image1" />
+          <img src={`data:image/jpeg;base64,${storedData.image1}`} alt="Image1" />
           </div>
           <div>
-          <img src={`data:image/jpeg;base64,${storedData[0].image2}`}  alt="Image2"/>
+          <img src={`data:image/jpeg;base64,${storedData.image2}`}  alt="Image2"/>
           </div>
           <div>
-          <img src={`data:image/jpeg;base64,${storedData[0].image3}`}  alt="Image3"/>
+          <img src={`data:image/jpeg;base64,${storedData.image3}`}  alt="Image3"/>
           </div>
           </Slider>
-          <div className={classes.price}>${parseInt(storedData[0].price)}</div>
+          <div className={classes.price}>${parseInt(storedData.price)}</div>
         </Card>
     )
 }

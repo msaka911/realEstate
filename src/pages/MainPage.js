@@ -69,7 +69,7 @@ const MainPage = () => {
   <Fragment>
   <header className={isMobile?classes.media:classes.welcome}>
     <h2>Welcome To</h2>
-    <h1> <span class="highlight">Number 1</span> Real Estate</h1>
+    <h1> <span className="highlight">Number 1</span> Real Estate</h1>
     <img  ref={ref}  src={image}></img>
     <Button onClick={()=>{navigate('/inventory')}}>Inventory</Button>
   </header>
@@ -95,7 +95,8 @@ const MainPage = () => {
   <section className={isMobile?classes.mediaItems:classes.display}>
    {storedData?.map((items)=>{
       return(            
-      <div key={items._id} className={classes.item}>  
+      <div key={items._id} className={classes.item}>
+         <h5 >{items._id}</h5>
         <h5 >{items.name}</h5>
         <img src={`data:image/png;base64,${items.image1}`}  alt="Image1"/>
         <h5 >${items.price}</h5>
@@ -109,13 +110,13 @@ const MainPage = () => {
   <img src={group} ></img>
   </section>
 
-  <section class="section section--quote">
-      <div class="section__title">
-        <h3 class="section__header">
+  <section className="section section--quote">
+      <div className="section__title">
+        <h3 className="section__header">
           Get free quote for your house now!
         </h3>
       </div>
-      <button class="btn"  onClick={()=>{navigate(`/new-quote`)}}>Free Quote!</button>
+      <button className="btn"  onClick={()=>{navigate(`/new-quote`)}}>Free Quote!</button>
     </section>
 
 
