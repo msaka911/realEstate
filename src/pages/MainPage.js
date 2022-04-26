@@ -96,7 +96,6 @@ const MainPage = () => {
    {storedData?.map((items)=>{
       return(            
       <div key={items._id} className={classes.item}>
-         <h5 >{items._id}</h5>
         <h5 >{items.name}</h5>
         <img src={`data:image/png;base64,${items.image1}`}  alt="Image1"/>
         <h5 >${items.price}</h5>
