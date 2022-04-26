@@ -97,7 +97,7 @@ const MainPage = () => {
       return(            
       <div key={items._id} className={classes.item}>  
         <h5 >{items.name}</h5>
-        <img src={`data:image/jpeg;base64,${items.image1}`}  alt="Image1"/>
+        <img src={`data:image/png;base64,${items.image1}`}  alt="Image1"/>
         <h5 >${items.price}</h5>
         <Button onClick={()=>{navigate(`/details/${items._id}`)}}>View Details</Button>
     </div>)
