@@ -9,6 +9,10 @@ import "slick-carousel/slick/slick-theme.css";
 import { isMobile } from 'react-device-detect';
 import { useAlert } from 'react-alert'
 
+import BedroomParentIcon from '@mui/icons-material/BedroomParent';
+import BathroomIcon from '@mui/icons-material/Bathroom';
+import LivingIcon from '@mui/icons-material/Living';
+
 const Details=()=>{
     const [storedData,setData]=useState([]);
 
@@ -47,10 +51,10 @@ const Details=()=>{
     
     return(
         <Card>
-        <h2 className={classes.detail}>{storedData.name}</h2>
+        <h2 className={isMobile?classes.h2:classes.detail}>{storedData.name}</h2>
         
         <Slider 
-          className={classes.slider}
+          className={isMobile?classes.mediaSlider:classes.slider}
           {...settings} 
           >
           <div>
@@ -63,7 +67,14 @@ const Details=()=>{
           <img src={`data:image/jpeg;base64,${storedData.image3}`}  alt="Image3"/>
           </div>
           </Slider>
-          <div className={classes.price}>${parseInt(storedData.price)}</div>
+          <div className={isMobile?classes.mediaLabel:classes.label}>
+          <label className={classes.price}>${parseInt(storedData.price)}</label>
+          <div style={{display:"flex", gap:isMobile?"0.8rem":"1.5rem"}}>
+            <label>3</label><BedroomParentIcon sx={{ fontSize: isMobile?30:45 }}/>
+            <label>2</label><BathroomIcon sx={{ fontSize:isMobile?30:45 }}/>
+            <label>1</label><LivingIcon sx={{ fontSize: isMobile?30:45 }}/>
+          </div>  
+          </div>
         </Card>
     )
 }
