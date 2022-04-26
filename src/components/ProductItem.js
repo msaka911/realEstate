@@ -24,8 +24,9 @@ const ProductItem = (props) => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    fade: true,
     autoplay: false,
+    drggable:true,
+    arrows: isMobile?false:true,
   };
   
 
@@ -69,9 +70,10 @@ const ProductItem = (props) => {
         <Slider
           asNavFor={nav1}
           ref={slider => (setSlider2(slider))}
-          slidesToShow={2.99}
+          slidesToShow={isMobile?2:2.99}
           swipeToSlide={true}
           focusOnSelect={true}
+          drggable={true}
           arrows={false}
         >          
         <div>
@@ -86,7 +88,7 @@ const ProductItem = (props) => {
         </Slider>
         </div>
         </div>
-          <p style={{height:"2rem",color:"black",fontSize:"1rem",lineHeight:"1rem",margin:"0.1rem 1.3rem"}}>{description}</p>
+          <p style={{height:"2rem",color:isMobile?"White":"black",fontSize:"1rem",lineHeight:"1.2rem",margin:"0.1rem 1.3rem"}}>{description}</p>
           <div className={classes.actions}>
         </div>
       </div>

@@ -32,18 +32,19 @@
   text-align: center;
   align-items: center;
   position: relative;
+  line-height: 1rem;
 }
 
 .media Button{
   text-align: center;
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   font-weight: 400;
   margin:-2rem;
   cursor: pointer;
   white-space: nowrap;
   position: absolute;
   bottom: 0%;
-  max-width: 50%;
+  max-width: 100%;
   padding:0 auto;
   margin: -2rem auto;
   padding:auto;

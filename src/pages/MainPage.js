@@ -73,11 +73,11 @@ const MainPage = () => {
     <img  ref={ref}  src={image}></img>
     <Button onClick={()=>{navigate('/inventory')}}>Inventory</Button>
   </header>
-  <section className={classes.section}>
+  <section className={isMobile?classes.mediaSection1:classes.section}>
     <Card title="Finance" description="Our best advisors" button="Apply for Loans">
       <img src={finance}/>
     </Card>
-    <Card title="W.S.I.B Insured" description="The best contractor in the industry" button="Apply for free quotation">
+    <Card title="W.S.I.B Insured" description="The best contractor in the industry" button="Free quotation">
     <img src={lease}/>
     </Card>
     <Card i title="Warranty" description="5 year Warranty" button="Know More">
@@ -92,7 +92,7 @@ const MainPage = () => {
    </p>
   </section>
 
-  <section className={classes.display}>
+  <section className={isMobile?classes.mediaItems:classes.display}>
    {storedData?.map((items)=>{
       return(            
       <div key={items._id} className={classes.item}>  

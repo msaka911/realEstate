@@ -38,10 +38,10 @@ useEffect(()=>{
     // axios.get('http://localhost:3001/realestate')
     axios.get('https://mybackend1.herokuapp.com/realEstate')
     .then(function (response) {
-      dispatch(stateActions.setItems(response.data),
-      setData(response.data),
+      dispatch(stateActions.setItems(response.data))
+      setData(response.data)
       console.log("hi")
-      )})
+      })
     .catch(function (error) {
       alert.error("cannot load the page")
     })
@@ -114,7 +114,7 @@ return (
         })):((filteredData.length===0&&focused&&searchTerm)?<div className= {classes.noresult}><h5 >No result found</h5></div>:null)}
       </div>
      <h2>Inventory</h2>
-     <section className={classes.products} style={{display:reachCount?'block':'none'}}>
+     <section className={isMobile?classes.mediaproducts:classes.products} style={{display:reachCount?'block':'none'}}>
         <ul id="scroll">
           {(data)?.map(product=><ProductItem
             key={product._id}

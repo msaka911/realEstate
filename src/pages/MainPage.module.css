@@ -7,6 +7,7 @@ img{
     z-index: -10;
     min-width:100%;
     background-size:cover;
+    overflow-x: hidden;
 }
 
 .welcome{
@@ -35,7 +36,6 @@ h2{
     align-items: center;
     font-weight: 500;
     font-size: 1.5rem;
-
 }
 
 h3{
@@ -82,7 +82,7 @@ h3{
 .group{
     display: flex;
     color: white;
-    margin: 10rem 1.3rem;
+    margin: 15rem 1.3rem;
     align-items: center;
 }
 
@@ -90,13 +90,27 @@ h3{
     position: relative;
     max-width: 70%;
     align-self: center;
+    transition: transform 1s, opacity 1s;
 }
 
 .media{
     color: white;
     text-align: center;
     align-self: center;
-    margin-top: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 10rem;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 10rem;
+}
+
+.media img{
+    position: absolute;
+    align-items: center;
+    opacity: 80%;
+    z-index: -1;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 .media header h2,.meida header h1{
@@ -122,7 +136,12 @@ h3{
 .mediaGroup img{
     position: relative;
     width: 100%;
-    right:0;
+    left:-4rem;
+    overflow-x: hidden;
+}
+
+.mediaGroup h2{
+    font-size: 2rem;
 }
 
 .mediaGroup{
@@ -130,24 +149,22 @@ h3{
   overflow-x: hidden;
   color: white;
   transition: transform 1s, opacity 1s;
+  margin-bottom: 5rem;
+  margin-top:7rem;
 }
 
-.media img{
-    position: absolute;
-    top:14rem;
-    left:-3rem;
-    align-items: center;
-    opacity: 80%;
-    z-index: -1;
-    max-width: 120%;
-}
+
 
 
 .display{
+    display: flex;
     column-count: 2;
-    width: 100%;
+    column-gap: 1.5rem;
     margin:1.5rem;
     transition: transform 1s, opacity 1s;
+    padding:auto 0;
+    margin: 1rem 2rem;
+    justify-items: center;
 }
 
 .item{
@@ -170,4 +187,41 @@ width:90%;
     width: 70%;
     border-radius: 0.5rem;
     z-index: 1;
+}
+
+.mediaSection1{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    padding: auto;
+    justify-self: center;
+    transition: transform 1s, opacity 1s;
+}
+
+.mediaSection1 img{
+    justify-content: center;
+    justify-self: center;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    opacity: 60%;
+    z-index: 1;
+}
+
+.mediaItems{
+    display: flex;
+    column-count: 2;
+    column-gap: 0.5rem;
+    transition: transform 1s, opacity 1s;
+    justify-items: center;
+}
+
+.mediaItems img{
+    margin: 0.5rem 0;
+    position: relative;
+    max-height:7rem;
+    z-index: 1;
+    align-self: center;
 }

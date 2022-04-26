@@ -5,19 +5,19 @@ import { isMobile } from 'react-device-detect';
 const Footer=()=>{
     return(
         <Fragment>
-            <footer class="footer" className={isMobile?classes.media:null}>
-                <ul class="footer__nav">
-                    <li class="footer__item">
-                    <a class="footer__link" href="#">About</a>
+            <footer className={isMobile?classes.media:classes.footer}>
+                <ul class={classes.nav}>
+                    <li class={classes.item}>
+                    <a class={classes.link} href="#">About</a>
                     </li>
-                    <li class="footer__item">
-                    <a class="footer__link" href="#">Terms of Use</a>
+                    <li class={classes.item}>
+                    <a class={classes.link} href="#">Terms of Use</a>
                     </li>
-                    <li class="footer__item">
-                    <a class="footer__link" href="#">Address</a>
+                    <li class={classes.item}>
+                    <a class={classes.link} href="#">Address</a>
                     </li>
-                    <li class="footer__item">
-                    <a class="footer__link" href="#">Contact Us</a>
+                    <li class={classes.item}>
+                    <a class={classes.link} href="#">Contact Us</a>
                     </li>
                 </ul>
             {/* <img src="img/icon.png" alt="Logo" class="footer__logo" /> */}

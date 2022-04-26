@@ -5,7 +5,8 @@
 
 .item{
   page-break-inside: avoid;
-  display:block
+  display:block;
+  margin-bottom: 0.3rem;
 }
 
 .card{
@@ -74,7 +75,7 @@ h5{
 }
 
 .slider2 img{
-  transform: translate(0%, 0);
+  transform: translate(-100%, 0);
   height: 5rem;
   width: 9rem;
 }
@@ -87,24 +88,22 @@ h5{
 
 
 .media{
-  margin: 0;
-  border-radius: 6px;
+  position: relative;
   border-color: white;
-  border-bottom:white dotted 0.1rem;
+  border-top:white dotted 0.1rem;
   padding: 0.7rem;
-  width: 100%;
   color: white;
+  display: flex;
+  flex-direction: column;
 }
-
 
 .slider img{
   position: relative;
-  margin: 0 auto;
-  height: 13.5rem;
-  width: 100%;
   border-radius: 0.5rem;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
+
+
 
 .media header{
   display: flex;

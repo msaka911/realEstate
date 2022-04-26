@@ -1,12 +1,12 @@
 .button{
     color:white;
     background-color: rgb(207, 39, 39);
-    padding: 0.3rem  3rem;
+    padding: 0.3rem 1.5rem;
     border: 0.2rem solid rgb(207, 39, 39);
     display:flex;
     margin:0 auto;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     cursor:pointer;
     text-align: center;
     align-content: center;
