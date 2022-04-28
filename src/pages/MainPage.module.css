@@ -84,13 +84,13 @@ h3{
     color: white;
     margin: 15rem 1.3rem;
     align-items: center;
+    transition: transform 1s, opacity 1s;
 }
 
 .group img{
     position: relative;
     max-width: 70%;
     align-self: center;
-    transition: transform 1s, opacity 1s;
 }
 
 .media{
